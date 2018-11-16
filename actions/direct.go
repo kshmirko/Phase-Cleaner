@@ -20,12 +20,11 @@ func DirectCalcAction(ctx *cli.Context) error {
 	midx := complex(ctx.Float64("mre"), ctx.Float64("mim"))
 	taua := ctx.Float64("taua")
 
-	do_direct_calc(galbedo, sol_zenith, npts, r0, r1, gamma, wl, midx, taua)
+	Do_direct_calc(galbedo, sol_zenith, npts, r0, r1, gamma, wl, midx, taua)
 	return nil
 }
 
-
-func do_direct_calc(galbedo, sol_zenith float64, npts int,
+func Do_direct_calc(galbedo, sol_zenith float64, npts int,
 	r0, r1, gamma, wl float64, midx complex128, taua float64) {
 
 	m := mie.NewPowerLaw(r0, r1, npts,
